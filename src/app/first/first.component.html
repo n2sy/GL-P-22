@@ -1,0 +1,10 @@
+<h3>Je suis le FirstComponent</h3>
+<p>{{ cours }} By {{ nom }}</p>
+
+<div [hidden]="hd" [style.backgroundColor]="color">GL - P</div>
+
+<button (click)="traitement()" class="btn btn-primary">Click Me</button>
+
+<input [(ngModel)]="nom" type="text" class="form-control">
+
+<app-second (msgToParent)="traitementDuParent($event)" [bgColor]="color"></app-second>
