@@ -1,0 +1,8 @@
+<ol>
+    <app-item *ngFor="let cand of listCandidats" (msgToList)="TraitementDeListe($event)" [oneCandidat]="cand">
+    </app-item>
+
+    <!-- <app-item (msgToList)="TraitementDeListe($event)" [oneCandidat]="listCandidats[0]"></app-item>
+    <app-item (msgToList)="TraitementDeListe($event)" [oneCandidat]="listCandidats[1]"></app-item>
+    <app-item (msgToList)="TraitementDeListe($event)" [oneCandidat]="listCandidats[2]"></app-item> -->
+</ol>

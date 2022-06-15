@@ -1,0 +1,22 @@
+<div [ngStyle]="{
+    'backgroundColor': bgColor,
+    'color' : cl,
+    'fontSize' : fSize,
+    'fontFamily' : font
+}">Application de NgStyle</div>
+
+<label for="">Background Color</label>
+<input [(ngModel)]="bgColor" type="text" class="form-control">
+
+<label for="">Text Color</label>
+<input [(ngModel)]="cl" type="text" class="form-control">
+
+<label for="">Font Size</label>
+<input #inp (change)="changeSize(inp)" type="number" class="form-control">
+
+<label for="">Font Family</label>
+<select [(ngModel)]="font" class="form-control">
+    <option value="garamond">Garamond</option>
+    <option value="calibri">Calibri</option>
+    <option value="phosphate">Phosphate</option>
+</select>
