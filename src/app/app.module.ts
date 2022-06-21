@@ -13,11 +13,28 @@ import { DirectComponent } from './direct/direct.component';
 import { MsWordComponent } from './ms-word/ms-word.component';
 import { CustomDirDirective } from './custom-dir.directive';
 import { ManageServersComponent } from './manage-servers/manage-servers.component';
+import { ShortPipe } from './short.pipe';
+import { FilterPipe } from './filter.pipe';
+import { FirstService } from './services/first.service';
 
 @NgModule({
-  declarations: [AppComponent, FirstComponent, SecondComponent, CvComponent, ListeComponent, DetailsComponent, ItemComponent, DirectComponent, MsWordComponent, CustomDirDirective, ManageServersComponent],
+  declarations: [
+    AppComponent,
+    FirstComponent,
+    SecondComponent,
+    CvComponent,
+    ListeComponent,
+    DetailsComponent,
+    ItemComponent,
+    DirectComponent,
+    MsWordComponent,
+    CustomDirDirective,
+    ManageServersComponent,
+    ShortPipe,
+    FilterPipe,
+  ],
   imports: [BrowserModule, FormsModule],
-  providers: [],
+  providers: [FirstService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

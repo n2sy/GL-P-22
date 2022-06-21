@@ -16,7 +16,7 @@ export class ManageServersComponent implements OnInit {
     {
       nom: 'Development Server',
       type: 'large',
-      statut: 'stable',
+      statut: 'offline',
       date_d: new Date(2020, 3, 14),
     },
     {
@@ -28,13 +28,23 @@ export class ManageServersComponent implements OnInit {
     {
       nom: 'Nidhal Server',
       type: 'large',
-      statut: 'stable',
+      statut: 'critical',
       date_d: new Date(2020, 3, 14),
     },
   ];
+  selectedStatut = '';
   constructor() {}
 
   ngOnInit(): void {}
+
+  addNewServer() {
+    this.listServers.push({
+      nom: 'NEW SERVER',
+      type: 'large',
+      statut: 'critical',
+      date_d: new Date(2020, 3, 14),
+    });
+  }
 
   affecterClass(st) {
     return {
