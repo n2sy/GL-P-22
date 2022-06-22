@@ -16,6 +16,14 @@ import { ManageServersComponent } from './manage-servers/manage-servers.componen
 import { ShortPipe } from './short.pipe';
 import { FilterPipe } from './filter.pipe';
 import { FirstService } from './services/first.service';
+import { RecruesComponent } from './recrues/recrues.component';
+import { HomeComponent } from './home/home.component';
+import { GL_P_ROUTING } from './app.routing';
+import { NavbarComponent } from './navbar/navbar.component';
+import { InfosComponent } from './infos/infos.component';
+import { AddComponent } from './add/add.component';
+import { EditComponent } from './edit/edit.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +40,15 @@ import { FirstService } from './services/first.service';
     ManageServersComponent,
     ShortPipe,
     FilterPipe,
+    RecruesComponent,
+    HomeComponent,
+    NavbarComponent,
+    InfosComponent,
+    AddComponent,
+    EditComponent,
+    NotFoundComponent,
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, GL_P_ROUTING],
   providers: [FirstService],
   bootstrap: [AppComponent],
 })
