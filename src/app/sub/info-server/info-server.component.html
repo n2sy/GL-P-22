@@ -1,0 +1,9 @@
+<div>
+    <strong> {{ selectedServer.nom }} </strong>
+    <br>
+    <p>Le statut du serveur est {{ selectedServer.statut }} </p>
+    <br>
+    <button [routerLink]="['edit']" [disabled]="showButton" class="btn btn-primary">Editer</button>
+    <br>
+    <i *ngIf="showButton">Impossible d'éditer ce serveur</i>
+</div>

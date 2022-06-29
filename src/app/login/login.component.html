@@ -1,0 +1,37 @@
+<div class="container">
+    <form #f="ngForm" (ngSubmit)="submitForm(f)">
+
+        <!-- <label for="">Exemple Erreurs</label>
+        <input #exp="ngModel" ngModel required minlength="4" pattern="nidhal" type="text" class="form-control"
+            name="exemple">
+        <div *ngIf="exp.invalid" class="alert alert-danger">
+            <p *ngIf="exp.errors['required']">Ce champ est required</p>
+            <p *ngIf="exp.errors['minlength']">Le nombre minimum de caractères est 4</p>
+            <p *ngIf="exp.errors['pattern']">Le pattern est "nidhal"</p>
+        </div>
+
+        <hr> -->
+        <label for="login">Login </label>
+        <input #loginInput="ngModel" ngModel email required type="text" class="form-control" name="login" id="login">
+        <div *ngIf="loginInput.invalid && loginInput.dirty" class="alert alert-danger">Ce champ doit être une adresse
+            mail</div>
+        <label for="pwd">Mot de passe </label>
+        <input ngModel type="text" class="form-control" name="password" id="pwd">
+
+        <!-- <label for="section">Section</label>
+        <select [ngModel]="defaultSection" name="section" id="section" class="form-control">
+            <option *ngFor="let section of listSections" [value]="section">{{section}}</option>
+        </select>
+
+        <label for="comment"></label>
+        <textarea class="form-control" [(ngModel)]="myCommentaire" name="myComment" rows="3" id="comment"></textarea>
+        {{ myCommentaire }} -->
+        <br><br>
+        <button [disabled]="f.invalid" class="btn btn-info">Se connecter</button>
+        <!-- <button (click)="randowPwd(f)" class="btn btn-primary">Randow Pwd</button>
+        <button (click)="randowPwdv2(f)" class="btn btn-danger">Randow Pwd II</button>
+        <pre>
+            {{ f.value | json}}
+        </pre> -->
+    </form>
+</div>
