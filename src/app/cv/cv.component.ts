@@ -9,7 +9,7 @@ import { ListCandidatsService } from '../services/list-candidats.service';
   styleUrls: ['./cv.component.css'],
 })
 export class CvComponent implements OnInit {
-  tabCandidats: Candidat[] = [
+  tabCandidats: any = [
     //   new Candidat(1, 'nidhal', 'jelassi', 36, 'Enseignant', 'nidhal.jpg'),
     //   new Candidat(2, 'bart', 'simpson', 15, 'Ingénieur', 'bart.jpeg'),
     //   new Candidat(1, 'homer', 'simpson', 76, 'Secrétaire', 'homer.jpg'),
@@ -18,7 +18,11 @@ export class CvComponent implements OnInit {
   constructor(private candSer: ListCandidatsService) {}
 
   ngOnInit(): void {
-    this.tabCandidats = this.candSer.getAllCandidats();
+    this.candSer.getAllCandidatAPI().subscribe({
+      next: (response) => {
+        this.tabCandidats = response;
+      },
+    });
   }
 
   addNewCandidat() {

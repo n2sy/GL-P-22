@@ -19,13 +19,27 @@ export class EditComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe({
       next: (p: ParamMap) => {
         //this.myId = p.get('id');
-        this.selectedCand = this.listSer.getCandidatById(p.get('id'));
+        this.listSer.getCandidatByIdAPI(p.get('id')).subscribe({
+          next: (response) => {
+            this.selectedCand = response;
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
       },
     });
   }
 
   updateHandler() {
-    this.listSer.updateCandidat(this.selectedCand);
-    this.router.navigateByUrl('/cv');
+    this.listSer.updateCandidatAPI(this.selectedCand).subscribe({
+      next: (response) => {
+        alert(response['message']);
+        this.router.navigateByUrl('/cv');
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }

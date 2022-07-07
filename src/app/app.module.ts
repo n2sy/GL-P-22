@@ -26,6 +26,8 @@ import { EditComponent } from './edit/edit.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SubModule } from './sub/sub.module';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TokenInterceptorProvider } from './token.interceptor';
 
 @NgModule({
   declarations: [
@@ -51,9 +53,15 @@ import { LoginComponent } from './login/login.component';
     NotFoundComponent,
     LoginComponent,
   ],
-  imports: [BrowserModule, FormsModule, GL_P_ROUTING, SubModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    GL_P_ROUTING,
+    SubModule,
+    HttpClientModule,
+  ],
 
-  providers: [FirstService],
+  providers: [FirstService, TokenInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

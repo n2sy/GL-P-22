@@ -34,7 +34,14 @@ export class InfosComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe({
       next: (p: ParamMap) => {
         //this.myId = p.get('id');
-        this.selectedCand = this.listSer.getCandidatById(p.get('id'));
+        this.listSer.getCandidatByIdAPI(p.get('id')).subscribe({
+          next: (response) => {
+            this.selectedCand = response;
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
         console.log(this.selectedCand);
       },
     });
@@ -45,8 +52,15 @@ export class InfosComponent implements OnInit {
 
   deleteHandler() {
     if (confirm('Etes-vous sûr de vouloir supprimer ce candidat ? ')) {
-      this.listSer.deleteCandidat(this.selectedCand);
-      this.router.navigateByUrl('/cv');
+      this.listSer.deleteCandidatAPI(this.selectedCand._id).subscribe({
+        next: (response) => {
+          alert('Candidat supprimé');
+          this.router.navigateByUrl('/cv');
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
     }
   }
 }

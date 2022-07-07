@@ -9,10 +9,11 @@
             <p *ngIf="exp.errors['minlength']">Le nombre minimum de caractères est 4</p>
             <p *ngIf="exp.errors['pattern']">Le pattern est "nidhal"</p>
         </div>
-
-        <hr> -->
+    -->
+        <div *ngIf="showError" class="alert alert-danger">Email et/ou Mot de passe incorrects</div>
+        <hr>
         <label for="login">Login </label>
-        <input #loginInput="ngModel" ngModel email required type="text" class="form-control" name="login" id="login">
+        <input #loginInput="ngModel" ngModel email required type="text" class="form-control" name="email" id="login">
         <div *ngIf="loginInput.invalid && loginInput.dirty" class="alert alert-danger">Ce champ doit être une adresse
             mail</div>
         <label for="pwd">Mot de passe </label>

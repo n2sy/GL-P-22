@@ -2,7 +2,7 @@
     <!-- <router-outlet></router-outlet> -->
     <div class="row">
         <div class="col-md-5">
-            <app-liste (msgToCv)="traitementDuCv($event)"></app-liste>
+            <app-liste (msgToCv)="traitementDuCv($event)" [listCandidats]="tabCandidats"></app-liste>
         </div>
         <div class="col-md-7">
             <app-details [candSelected]="selectedCandidat"></app-details>
